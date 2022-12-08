@@ -1,0 +1,16 @@
+---
+- hosts: servers
+  become:
+    true
+  become_method:
+    sudo
+  become_user:
+    root
+  remote_user:
+    test
+  roles:
+   - epel
+   - nginx
+  vars:
+    nginx_user: nginx
+

@@ -1,0 +1,14 @@
+---
+- name: Install Nginx Web Server on CentOS
+  yum:
+    name=nginx
+    state=latest
+
+- name: Replace backend.conf
+  template:
+    src=templates/backend.conf
+    dest=/etc/nginx/conf.d/backend.conf
+- name: Insert Index Page
+  template:
+    src=templates/index.html
+    dest=/usr/share/nginx/html/index.html
